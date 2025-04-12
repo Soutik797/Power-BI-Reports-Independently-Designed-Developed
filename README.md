@@ -38,117 +38,104 @@ Demonstrated the ability to troubleshoot issues, optimize performance, and enhan
 
 
 
-🛑 Total Summary of Power BI Report: HR ANALYTICS DASHBOARD
+# 📊 HR Analytics Dashboard Overview
 
+## 📝 Summary
 
-The HR Analytics Dashboard provides a comprehensive overview of employee attrition trends across various demographics, job roles, and organizational segments. With a total of 1,470 employees, the attrition count is 237, resulting in a 16.1% attrition rate. The dashboard reveals key insights such as higher attrition among the 26–35 age group, predominance in the Life Sciences education field, and concentration among employees earning below 5K. Additionally, male employees account for the majority of attrition cases, and job satisfaction scores cluster around mid to high levels, providing a multidimensional view into workforce dynamics.
+The HR Analytics Dashboard provides a comprehensive view of employee attrition trends across demographics, job roles, and organizational segments. Out of 1,470 employees, 237 have left the organization, reflecting an attrition rate of 16.1%. Key findings include high attrition among the 26–35 age group, a concentration in the Life Sciences education field, and most attrition occurring among employees earning below 5K. Males account for the majority of attrition cases. Despite this, job satisfaction scores tend to cluster around moderate to high levels, offering important insights into engagement and retention strategies.
 
+---
 
-✅ 2. What Type of Visualizations I have used:
+## 📈 Key Metrics
 
-1) Card
-2) Donut Chart
-3) Clustered bar chart
-4) Stacked area chart
-5) Slicer
-6) Map
-7) Treemap
-8) Matrix
+| Metric                    | Value       |
+|--------------------------|-------------|
+| Total Employees          | 1,470       |
+| Attrition Count          | 237         |
+| Attrition Rate           | 16.1%       |
+| Average Age              | 37          |
+| Average Salary           | 6.5K        |
+| Average Years at Company | 7.0         |
 
+---
 
+## 📊 Analysis by Dimension
 
-📊 Full Analysis Based on Dataset
+### ➤ Attrition by Age Group
+- 26–35: **116**
+- 18–25: 44
+- 36–45: 43
+- 46–55: 26
+- 55+: 8
 
-1. Overall Employee Metrics
-   
-•Total Employees: 1,470
-•Attrition Count: 237
-•Attrition Rate: 16.1%
-•Average Age: 37
-•Average Salary: 6.5K
-Average Years at Company: 7 years
+### ➤ Attrition by Gender
+- Male: **150**
+- Female: 87
 
-2. Attrition by Age Group
-   
-•Highest attrition is in the 26–35 age group (116 employees).
+### ➤ Attrition by Education Field
+- Life Sciences: **38%**
+- Medical: 27%
+- Marketing: 15%
+- Technical Degree: 14%
+- Other: 5%
 
-•Followed by 18–25 (44) and 36–45 (43).
+### ➤ Attrition by Salary Slab
+- Upto 5K: **163**
+- 5K–10K: 49
+- 10K–15K: 20
+- 15K+: 5
 
-•Older age groups (46–55 and 55+) show lower attrition.
+### ➤ Attrition by Job Role (Top 4)
+- Laboratory Technician: **62**
+- Sales Executive: 57
+- Research Scientist: 47
+- Sales Representative: 33
 
-3. Attrition by Gender
-   
-•Male: 150 (63.3%)
+### ➤ Attrition by Years at Company
+- Highest attrition within **first few years** of tenure, especially in entry/mid-level roles.
 
-•Female: 87 (36.7%)
+---
 
-4. Attrition by Education Field
-   
-•Life Sciences: 38% of total attrition
+## 😀 Job Satisfaction Breakdown
 
-•Medical: 27%
+| Job Role                  | Total Attrition | Satisfaction (1–4) |
+|---------------------------|------------------|---------------------|
+| Laboratory Technician     | 62               | Mixed (Mostly 3–4)  |
+| Sales Executive           | 57               | Mixed (2–4)         |
+| Research Scientist        | 47               | Mixed (1–4)         |
+| Sales Representative      | 33               | Mixed (1–3)         |
 
-•Marketing: 15%
+---
 
-•Technical Degree: 14%
+## 💡 Visual Insights
 
-•Others contribute a smaller share.
+- 📌 **26–35 age group** has the highest attrition.
+- 📌 **Male employees** account for ~63% of attrition.
+- 📌 Employees earning **<5K** dominate attrition.
+- 📌 **Life Sciences** background employees see the highest attrition.
+- 📌 **Sales and Technical roles** need focused retention strategies.
 
-5. Attrition by Salary Slab
-   
-•< 5K: 163 employees (dominates attrition)
+---
 
-•5K–10K: 49
+## 🧮 DAX / Calculated Columns (Suggested)
 
-•10K–15K: 20
+```DAX
+-- Attrition Rate
+Attrition Rate = DIVIDE(COUNT(HR_Analytics[Attrition]), COUNT(HR_Analytics[EmployeeID]))
 
-•> 15K: 5
+-- Average Salary
+Average Salary = AVERAGE(HR_Analytics[MonthlyIncome])
 
-6. Attrition by Job Role
-   
-•Laboratory Technician and Sales Executive are most affected.
+-- Salary Slab
+Salary Slab = SWITCH(TRUE(),
+    HR_Analytics[MonthlyIncome] <= 5000, "Upto 5k",
+    HR_Analytics[MonthlyIncome] <= 10000, "5k–10k",
+    HR_Analytics[MonthlyIncome] <= 15000, "10k–15k",
+    "15k+"
+)
 
-•Research Scientist and Sales Rep also show moderate attrition.
-
-•Roles like Managers and Directors see minimal attrition.
-
-7. Attrition by Years at Company
-   
-•Attrition is high among employees with less than 3 years.
-
-•Peak attrition is seen in early tenure, indicating possible onboarding/training or engagement issues.
-
-8. Job Satisfaction
-   
-•Scores are evenly spread across levels 1 to 4.
-
-•Majority fall in Level 3 and 4, which are moderate to high satisfaction levels.
-
-📈 Visual Insights
-
-• Bar charts and donut charts offer instant comparison of attrition across categories.
-
-• Line charts (Attrition by Job Role) help identify spikes and dips clearly.
-
-• Stacked charts show attrition gender distribution in age brackets.
-
-• Use of contrasting colors and layout helps highlight key problem areas visually.
-
-
-
-
-
-🧮 Metrics, Trends & Possible DAX/Formulas
-
-Metric	Possible DAX Formula
-
-Attrition Rate	DIVIDE(COUNT(Attrition[Yes]), COUNT(Employee[ID]))
-Average Age	AVERAGE(HR_Analytics[Age])
-Average Salary	AVERAGE(HR_Analytics[MonthlyIncome])
-Average Years at Company	AVERAGE(HR_Analytics[YearsAtCompany])
-Attrition Count by Role	CALCULATE(COUNT(HR_Analytics[ID]), HR_Analytics[Attrition] = "Yes", HR_Analytics[JobRole])
-Attrition by Salary Slab	Use SWITCH(TRUE(), [Salary] <= 5000, "Upto 5k", [Salary] <=10000, "5k–10k", ...)
-Job Satisfaction Breakdown	SUMMARIZE(HR_Analytics, [JobRole], [JobSatisfaction])
+-- Attrition by Role
+Attrition by Role = CALCULATE(COUNT(HR_Analytics[EmployeeID]), HR_Analytics[Attrition] = "Yes")
 
 
 
