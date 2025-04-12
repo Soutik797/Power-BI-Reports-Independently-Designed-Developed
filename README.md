@@ -120,9 +120,10 @@ The HR Analytics Dashboard provides a comprehensive view of employee attrition t
 
 ---
 
-## 🧮 DAX / Calculated Columns (Suggested)
-
-```DAX
+<details> <summary>🧮 DAX / Calculated Columns (Click to Expand)</summary>
+DAX
+Copy
+Edit
 -- Attrition Rate
 Attrition Rate = DIVIDE(COUNT(HR_Analytics[Attrition]), COUNT(HR_Analytics[EmployeeID]))
 
@@ -139,8 +140,10 @@ Salary Slab = SWITCH(TRUE(),
 
 -- Attrition by Role
 Attrition by Role = CALCULATE(COUNT(HR_Analytics[EmployeeID]), HR_Analytics[Attrition] = "Yes")
+</details>
 
----
+
+
 
 <!-- SPACE -->
 ###   <!-- empty heading or any text creates a gap -->
