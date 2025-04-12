@@ -118,7 +118,33 @@ The HR Analytics Dashboard provides a comprehensive view of employee attrition t
 ---
 
 
+---
 
+## 🧮 DAX / Calculated Columns (Suggested)
+
+```DAX
+-- Attrition Rate
+Attrition Rate = DIVIDE(COUNT(HR_Analytics[Attrition]), COUNT(HR_Analytics[EmployeeID]))
+
+-- Average Salary
+Average Salary = AVERAGE(HR_Analytics[MonthlyIncome])
+
+-- Salary Slab
+Salary Slab = SWITCH(TRUE(),
+    HR_Analytics[MonthlyIncome] <= 5000, "Upto 5k",
+    HR_Analytics[MonthlyIncome] <= 10000, "5k–10k",
+    HR_Analytics[MonthlyIncome] <= 15000, "10k–15k",
+    "15k+"
+)
+
+-- Attrition by Role
+Attrition by Role = CALCULATE(COUNT(HR_Analytics[EmployeeID]), HR_Analytics[Attrition] = "Yes")
+
+
+
+<!-- SPACE -->
+###   <!-- empty heading or any text creates a gap -->
+<br><br><br>  <!-- This creates vertical space -->
 
 
 
