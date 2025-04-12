@@ -24,3 +24,37 @@ Ensured every report was easy to navigate, visually appealing, and aligned with 
 
 💡 Independent Problem Solving
 Demonstrated the ability to troubleshoot issues, optimize performance, and enhance visuals — all through self-guided learning.
+
+
+
+
+
+
+
+HR ANALYTICS DASHBOARD
+
+<img width="600" alt="B" src="https://github.com/user-attachments/assets/3a25ad52-467d-4abd-90aa-9af4de23ca5a" />
+
+
+
+SuperStore - Sales Dashboard
+
+<img width="602" alt="A" src="https://github.com/user-attachments/assets/c356f8dd-1c98-4bcd-b14f-f4b871a27927" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
