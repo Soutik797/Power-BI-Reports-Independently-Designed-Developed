@@ -140,7 +140,7 @@ Salary Slab = SWITCH(TRUE(),
 -- Attrition by Role
 Attrition by Role = CALCULATE(COUNT(HR_Analytics[EmployeeID]), HR_Analytics[Attrition] = "Yes")
 
-
+---
 
 <!-- SPACE -->
 ###   <!-- empty heading or any text creates a gap -->
