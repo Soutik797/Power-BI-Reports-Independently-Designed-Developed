@@ -138,8 +138,7 @@ Salary Slab = SWITCH(TRUE(),
 Attrition by Role = CALCULATE(COUNT(HR_Analytics[EmployeeID]), HR_Analytics[Attrition] = "Yes")
 
 
-<br><br><br>  <!-- This creates vertical space -->
-<br><br><br>  <!-- This creates vertical space -->
+
 
 
 ➡️ SuperStore - Sales Dashboard
